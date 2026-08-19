@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remix Forge Publisher</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 720px;
+         margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+  h1 { font-size: 1.7rem; }
+  .badge { display: inline-block; background: #1d1a15; color: #e8c872; border-radius: 8px;
+           padding: 2px 10px; font-size: .85rem; margin-bottom: 12px; }
+  h2 { font-size: 1.15rem; margin-top: 1.8em; }
+  ol li { margin: 6px 0; }
+  footer { margin-top: 3em; color: #777; font-size: .9rem; }
+  a { color: #4183c4; }
+</style>
+</head>
+<body>
+<span class="badge">personal tool · single user</span>
+<h1>Remix Forge Publisher</h1>
+
+<p>Remix Forge Publisher is a personal desktop tool that publishes short-form music
+remix videos <strong>created by its developer</strong> to the developer's
+<strong>own TikTok account</strong>, using TikTok's official Content Posting API.</p>
+
+<h2>How it works</h2>
+<ol>
+  <li>Videos are rendered locally with an FFmpeg pipeline (chorus cut &rarr; crossfade loop
+      &rarr; audio preset &rarr; 9:16 video with a background image).</li>
+  <li>The owner reviews each rendered video and writes its caption and privacy level into a
+      local queue file.</li>
+  <li>The tool authenticates the owner's TikTok account via Login Kit (OAuth) and posts the
+      next queued video via the Content Posting API — at most a few posts per day.</li>
+</ol>
+
+<h2>Scope of the app</h2>
+<p>Single-user by design: the App is not distributed, offers no service to third parties,
+collects no data from anyone other than the app owner, and never reads, comments on, or
+interacts with any other user's content.</p>
+
+<h2>Legal</h2>
+<p><a href="privacy/">Privacy Policy</a> · <a href="terms/">Terms of Service</a></p>
+
+<h2>Contact</h2>
+<p><a href="mailto:doletu31@gmail.com">doletu31@gmail.com</a></p>
+
+<footer>Remix Forge Publisher — a personal publishing tool built on TikTok's official
+Content Posting API.</footer>
+</body>
+</html>
