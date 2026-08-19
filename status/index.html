@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remix Forge — Status</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 860px;
+         margin: 40px auto; padding: 0 20px; line-height: 1.6;
+         background: #17140f; color: #e8e2d4; }
+  h1 { font-size: 1.5rem; color: #e8c872; }
+  .tiles { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 26px; }
+  .tile { background: #221d15; border: 1px solid #3a3122; border-radius: 10px;
+          padding: 12px 18px; min-width: 130px; }
+  .tile b { font-size: 1.5rem; color: #e8c872; display: block; }
+  .note { background: #2a2415; border-left: 3px solid #e8c872; padding: 8px 14px;
+          border-radius: 0 8px 8px 0; font-size: .95rem; }
+  .twrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; margin-top: 18px; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #3a3122; }
+  th { color: #b7a877; font-weight: 600; }
+  footer { margin-top: 40px; color: #8a8272; font-size: .85rem; }
+  a { color: #e8c872; }
+</style>
+</head>
+<body>
+<h1>🎵 Remix Forge — Pipeline Status</h1>
+<div class="tiles">
+  <div class="tile"><b>4</b>clip đã render</div>
+  <div class="tile"><b>4</b>chờ đăng TikTok</div>
+  <div class="tile"><b>0</b>đã đăng TikTok</div>
+</div>
+<p class="note">Hồ sơ audit TikTok đã nộp 19/08 — đang chờ review (~1–2 tuần)</p>
+<div class="twrap">
+<table>
+<tr><th>Bài</th><th>Preset</th><th>Render</th><th>TikTok</th><th>YouTube</th></tr>
+<tr><td>Cổ Thành Mộng</td><td>normal</td><td>✅ 10 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
+<tr><td>Remix Forge Demo</td><td>normal</td><td>✅ 3 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
+<tr><td>Nguyệt Dạ Sơn Hà</td><td>normal</td><td>✅ 10 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
+<tr><td>Trường Phong Túy</td><td>normal</td><td>✅ 10 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
+</table>
+</div>
+<footer>Cập nhật 2026-08-19 23:18 (GMT+7) · sinh tự động bởi <code>publish_remix_status.py</code> ·
+<a href="../">về trang chính</a></footer>
+</body>
+</html>
