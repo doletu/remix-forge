@@ -3,44 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
 <title>Remix Forge — Status</title>
 <style>
-  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 860px;
-         margin: 40px auto; padding: 0 20px; line-height: 1.6;
-         background: #17140f; color: #e8e2d4; }
-  h1 { font-size: 1.5rem; color: #e8c872; }
-  .tiles { display: flex; gap: 12px; flex-wrap: wrap; margin: 18px 0 26px; }
-  .tile { background: #221d15; border: 1px solid #3a3122; border-radius: 10px;
-          padding: 12px 18px; min-width: 130px; }
-  .tile b { font-size: 1.5rem; color: #e8c872; display: block; }
-  .note { background: #2a2415; border-left: 3px solid #e8c872; padding: 8px 14px;
-          border-radius: 0 8px 8px 0; font-size: .95rem; }
-  .twrap { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; margin-top: 18px; }
-  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #3a3122; }
-  th { color: #b7a877; font-weight: 600; }
-  footer { margin-top: 40px; color: #8a8272; font-size: .85rem; }
-  a { color: #e8c872; }
+  body { font-family: system-ui, sans-serif; background: #17140f; color: #e8e2d4;
+         display: flex; min-height: 100vh; align-items: center; justify-content: center; margin: 0; }
+  .gate { text-align: center; padding: 24px; }
+  input { background: #221d15; color: #e8e2d4; border: 1px solid #3a3122; border-radius: 8px;
+          padding: 10px 14px; font-size: 1rem; width: 230px; }
+  button { background: #e8c872; color: #17140f; border: 0; border-radius: 8px;
+           padding: 10px 18px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-left: 8px; }
+  .err { color: #e07050; min-height: 1.4em; margin-top: 10px; }
 </style>
 </head>
 <body>
-<h1>🎵 Remix Forge — Pipeline Status</h1>
-<div class="tiles">
-  <div class="tile"><b>4</b>clip đã render</div>
-  <div class="tile"><b>4</b>chờ đăng TikTok</div>
-  <div class="tile"><b>0</b>đã đăng TikTok</div>
+<div class="gate">
+  <h2>🔒 Remix Forge Status</h2>
+  <p>Trang riêng tư — nhập mật khẩu để xem.</p>
+  <form id="f"><input id="pw" type="password" autofocus placeholder="Mật khẩu">
+  <button>Mở</button></form>
+  <div class="err" id="err"></div>
 </div>
-<p class="note">Hồ sơ audit TikTok đã nộp 19/08 — đang chờ review (~1–2 tuần)</p>
-<div class="twrap">
-<table>
-<tr><th>Bài</th><th>Preset</th><th>Render</th><th>TikTok</th><th>YouTube</th></tr>
-<tr><td>Cổ Thành Mộng</td><td>normal</td><td>✅ 10 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
-<tr><td>Remix Forge Demo</td><td>normal</td><td>✅ 3 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
-<tr><td>Nguyệt Dạ Sơn Hà</td><td>normal</td><td>✅ 10 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
-<tr><td>Trường Phong Túy</td><td>normal</td><td>✅ 10 MB</td><td>🕐 trong hàng đợi</td><td>🕐 trong hàng đợi</td></tr>
-</table>
-</div>
-<footer>Cập nhật 2026-08-19 23:18 (GMT+7) · sinh tự động bởi <code>publish_remix_status.py</code> ·
-<a href="../">về trang chính</a></footer>
+<script>
+const SALT="LEfK5hon03Z4T/rAfZaT+g==", IV="BE+lgoIlV21v22Jf", CT="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", ITER=600000;
+const un64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function unlock(pw) {
+  const km = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    {name:"PBKDF2", salt:un64(SALT), iterations:ITER, hash:"SHA-256"},
+    km, {name:"AES-GCM", length:256}, false, ["decrypt"]);
+  const pt = await crypto.subtle.decrypt({name:"AES-GCM", iv:un64(IV)}, key, un64(CT));
+  return new TextDecoder().decode(pt);
+}
+async function tryUnlock(pw, remember) {
+  try {
+    const html = await unlock(pw);
+    if (remember) sessionStorage.setItem("rf_pw", pw);
+    document.open(); document.write(html); document.close();
+  } catch (e) {
+    sessionStorage.removeItem("rf_pw");
+    document.getElementById("err").textContent = "Sai mật khẩu.";
+  }
+}
+document.getElementById("f").addEventListener("submit", ev => {
+  ev.preventDefault(); tryUnlock(document.getElementById("pw").value, true);
+});
+const saved = sessionStorage.getItem("rf_pw");
+if (saved) tryUnlock(saved, false);
+</script>
 </body>
 </html>
